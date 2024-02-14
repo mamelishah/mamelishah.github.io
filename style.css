@@ -1,0 +1,16 @@
+
+body {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#chatbox {
+    position: fixed; /* eller 'absolute' */
+    bottom: 0;
+    right: 0;
+    width: 430px;
+    height: 500px;
+    background-color: #017163;
+    margin: 5px;
+}
