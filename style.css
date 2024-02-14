@@ -4,6 +4,10 @@ body {
     justify-content: space-between;
 }
 
+h1 {
+    margin-left: 20px;
+}
+
 
 #chatbox {
     position: fixed; /* eller 'absolute' */
