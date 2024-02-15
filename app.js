@@ -4,7 +4,7 @@ let heightOfLinkedInElement = 50;
 let linkToLinkedInUser = "https://dk.linkedin.com/in/frederik-holst-2aa234114";
 
 
-let id_identificator = "chatbox";
+let id_identificator = "VisitorWidgetStyleWrapper__WidgetStyleWrapper-sc-1nz0dzb-0 kLoNVr";
 let getChatBoxElement = document.getElementById(id_identificator);
 let body = document.body;
 
