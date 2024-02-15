@@ -14,7 +14,7 @@ const linkinLogo = document.createElement("img");
 const leftSection = document.createElement("div");
 
 
-linkedInElement.style.display = "none";
+linkedInElement.style.visibility = "hidden";
 
 
 const title = document.createElement("p");
