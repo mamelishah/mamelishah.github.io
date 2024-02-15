@@ -66,7 +66,7 @@ linkedInElement.style.visibility = "hidden";
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.target === getChatBoxElement[0] && entry.isIntersecting) {
-            linkedInElement.style.visibility = "visible";
+            console.log("Hello world")
         }
     });
 });
