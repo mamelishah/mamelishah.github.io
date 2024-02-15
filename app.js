@@ -110,7 +110,7 @@ function waitForElm(selector) {
     });
 }
 
-waitForElm('.some-class').then((elm) => {
+waitForElm('id_identificator').then((elm) => {
     console.log('Element is ready');
 });
 
