@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const htmlElement = document.documentElement; // Dette refererer til <html>-elementet
 
 function handleAttributeMutations(mutations) {
-    console.log('Observeret ændringer i attributterne:');
     mutations.forEach((mutation) => {
       if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
         const targetElement = mutation.target;
         if (targetElement.classList.contains('hs-messages-widget-open')) {
           console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
+          linkedInElement.style.visibility = "show";
         } else {
           console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
         }
@@ -26,7 +26,6 @@ const config = {
 
 observer.observe(htmlElement, config);
 
-console.log("Hello World!")
   });
   
 
@@ -96,11 +95,6 @@ linkinLogo.style.margin = "10px";
 
 linkedInElement.style.visibility = "hidden";
 
-document.body.addEventListener('click', function(event) {
-    if (event.target.matches('.specifikt-element')) {
-        console.log('.specifikt-element blev klikket');
-    }
-});
 
 linkedInElement.style.backgroundColor = "#017163";
 linkedInElement.style.position = "absolute";
