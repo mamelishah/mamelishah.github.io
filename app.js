@@ -1,4 +1,37 @@
 
+document.addEventListener('DOMContentLoaded', function() {
+    const htmlElement = document.documentElement; // Dette refererer til <html>-elementet
+
+function handleAttributeMutations(mutations) {
+    console.log('Observeret ændringer i attributterne:');
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        const targetElement = mutation.target;
+        if (targetElement.classList.contains('hs-messages-widget-open')) {
+          console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
+        } else {
+          console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
+        }
+      }
+    });
+  }
+
+
+const observer = new MutationObserver(handleAttributeMutations);
+
+const config = {
+  attributes: true, // observer ændringer i attributter
+  attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
+};
+
+observer.observe(htmlElement, config);
+
+console.log("Hello World!")
+  });
+  
+
+
+
 
 let heightOfLinkedInElement = 50;
 let linkToLinkedInUser = "https://dk.linkedin.com/in/frederik-holst-2aa234114";
@@ -100,33 +133,7 @@ window.addEventListener('resize', positionPara);
 linkedInElement.addEventListener("click", () => window.location.href = linkToLinkedInUser);
 
 
-const htmlElement = document.documentElement; // Dette refererer til <html>-elementet
 
-function handleAttributeMutations(mutations) {
-    console.log('Observeret ændringer i attributterne:');
-    mutations.forEach((mutation) => {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        const targetElement = mutation.target;
-        if (targetElement.classList.contains('hs-messages-widget-open')) {
-          console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
-        } else {
-          console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
-        }
-      }
-    });
-  }
-
-
-const observer = new MutationObserver(handleAttributeMutations);
-
-const config = {
-  attributes: true, // observer ændringer i attributter
-  attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
-};
-
-observer.observe(htmlElement, config);
-
-console.log("Hello World!")
 
   
 
