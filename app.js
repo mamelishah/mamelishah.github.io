@@ -26,6 +26,8 @@ function handleAttributeMutations(mutations) {
           linkedInElement.style.visibility = "show";
         } else {
           console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
+          linkedInElement.style.visibility = "hidden";
+
         }
       }
     });
