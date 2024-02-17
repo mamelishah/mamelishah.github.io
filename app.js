@@ -101,7 +101,7 @@ linkedInElement.addEventListener("click", () => window.location.href = linkToLin
 
 
 document.body.addEventListener('click', function(event) {
-    if (event.target.matches('VizExNotificationBadge__Wrapper-sc-1u71780-0')) {
+    if (event.target.matches('Launcher__IconLauncherWrapper-sc-16smki3-0')) {
         console.log('.specifikt-element blev klikket');
     }
 });
