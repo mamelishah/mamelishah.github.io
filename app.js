@@ -1,4 +1,23 @@
 
+
+
+function handleAttributeMutations(mutations) {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        const targetElement = mutation.target;
+        if (targetElement.classList.contains('hs-messages-widget-open')) {
+          console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
+          linkedInElement.style.display = "block";
+          positionPara();
+        } else {
+          console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
+          linkedInElement.style.display = "none";
+        }
+      }
+    });
+  }
+
+
 let heightOfLinkedInElement = 50;
 let linkToLinkedInUser = "https://dk.linkedin.com/in/frederik-holst-2aa234114";
 
@@ -27,21 +46,7 @@ function positionPara() {
 }
 
 
-function handleAttributeMutations(mutations) {
-    mutations.forEach((mutation) => {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        const targetElement = mutation.target;
-        if (targetElement.classList.contains('hs-messages-widget-open')) {
-          console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
-          linkedInElement.style.display = "block";
-          positionPara();
-        } else {
-          console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
-          linkedInElement.style.display = "none";
-        }
-      }
-    });
-  }
+
 
 
 title.textContent = "Eller skriv til os via linkedIn";
