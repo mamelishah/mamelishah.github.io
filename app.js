@@ -117,7 +117,7 @@ function handleAttributeMutations(mutations) {
   }
 
 
-  const observer = new MutationObserver(handleAttributeMutations);
+const observer = new MutationObserver(handleAttributeMutations);
 
 const config = {
   attributes: true, // observer ændringer i attributter
