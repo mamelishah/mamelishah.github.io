@@ -126,6 +126,8 @@ const config = {
 
 observer.observe(htmlElement, config);
 
+console.log("Hello World!")
+
   
 
 
