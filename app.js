@@ -106,7 +106,7 @@ function handleMutations(mutations) {
       // Tjek hver tilføjet node
       mutation.addedNodes.forEach((node) => {
         // Tjek om den tilføjede node (eller et af dens børn) har den specifikke klasse
-        if (node.nodeType === 1 && (node.matches('.kfMfuw') || node.querySelector('.kfMfuw'))) {
+        if (node.nodeType === 1 && (node.matches('.hs-messages-widget-open') || node.querySelector('.hs-messages-widget-open'))) {
           console.log('Det specifikke vindue blev åbnet:', node);
         }
       });
