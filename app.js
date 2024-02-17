@@ -69,7 +69,6 @@ document.body.addEventListener('click', function(event) {
     }
 });
 
-observer.observe(getChatBoxElement[0]);
 linkedInElement.style.backgroundColor = "#017163";
 linkedInElement.style.position = "absolute";
 
