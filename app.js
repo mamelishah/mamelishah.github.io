@@ -1,6 +1,21 @@
 
+let heightOfLinkedInElement = 50;
+let linkToLinkedInUser = "https://dk.linkedin.com/in/frederik-holst-2aa234114";
+
+
+let id_identificator = "VisitorWidgetStyleWrapper__WidgetStyleWrapper-sc-1nz0dzb-0";
+let getChatBoxElement = document.getElementsByClassName(id_identificator);
+let body = document.body;
+
+const linkedInElement = document.createElement("div");
+const linkedInLogoBackground = document.createElement("div");
+const linkinLogo = document.createElement("img");
+const leftSection = document.createElement("div");
+
+linkedInElement.style.visibility = "hidden";
+
 document.addEventListener('DOMContentLoaded', function() {
-    const htmlElement = document.documentElement; // Dette refererer til <html>-elementet
+    const htmlElement = document.documentElement; 
 
 function handleAttributeMutations(mutations) {
     mutations.forEach((mutation) => {
@@ -32,18 +47,6 @@ observer.observe(htmlElement, config);
 
 
 
-let heightOfLinkedInElement = 50;
-let linkToLinkedInUser = "https://dk.linkedin.com/in/frederik-holst-2aa234114";
-
-
-let id_identificator = "VisitorWidgetStyleWrapper__WidgetStyleWrapper-sc-1nz0dzb-0";
-let getChatBoxElement = document.getElementsByClassName(id_identificator);
-let body = document.body;
-
-const linkedInElement = document.createElement("div");
-const linkedInLogoBackground = document.createElement("div");
-const linkinLogo = document.createElement("img");
-const leftSection = document.createElement("div");
 
 
 
@@ -93,7 +96,6 @@ linkedInLogoBackground.style.justifyContent = "center";
 linkinLogo.style.margin = "10px";
 
 
-linkedInElement.style.visibility = "hidden";
 
 
 linkedInElement.style.backgroundColor = "#017163";
