@@ -106,7 +106,7 @@ function handleMutations(mutations) {
       // Tjek hver tilføjet node
       mutation.addedNodes.forEach((node) => {
         // Tjek om den tilføjede node (eller et af dens børn) har den specifikke klasse
-        if (node.nodeType === 1 && (node.matches('.VisitorWidgetStyleWrapper__WidgetStyleWrapper-sc-1nb0krf-0.kfMfuw') || node.querySelector('.VisitorWidgetStyleWrapper__WidgetStyleWrapper-sc-1nb0krf-0.kfMfuw'))) {
+        if (node.nodeType === 1 && (node.matches('.kfMfuw') || node.querySelector('.kfMfuw'))) {
           console.log('Det specifikke vindue blev åbnet:', node);
         }
       });
