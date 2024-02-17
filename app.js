@@ -100,35 +100,31 @@ window.addEventListener('resize', positionPara);
 linkedInElement.addEventListener("click", () => window.location.href = linkToLinkedInUser);
 
 
-// Definer funktionen til at håndtere mutationer
-function handleMutations(mutations) {
+const htmlElement = document.documentElement; // Dette refererer til <html>-elementet
+
+function handleAttributeMutations(mutations) {
     mutations.forEach((mutation) => {
-      // Tjek hver tilføjet node
-      mutation.addedNodes.forEach((node) => {
-        // Tjek om den tilføjede node (eller et af dens børn) har den specifikke klasse
-        if (node.nodeType === 1 && (node.matches('.hs-messages-widget-open') || node.querySelector('.hs-messages-widget-open'))) {
-          console.log('Det specifikke vindue blev åbnet:', node);
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        const targetElement = mutation.target;
+        if (targetElement.classList.contains('hs-messages-widget-open')) {
+          console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
+        } else {
+          console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
         }
-      });
-  
-      // Her kan du også tjekke for fjernede nodes, hvis det er relevant
+      }
     });
   }
-  
-  // Opret en MutationObserver instans
-  const observer = new MutationObserver(handleMutations);
-  
-  // Konfigurer observeren
-  const config = {
-    childList: true, // observer direkte børn
-    subtree: true, // observer alle efterkommere
-  };
-  
-  // Start observationen
-  observer.observe(document.body, config);
-  
-  // Husk at afbryde observationen, når den ikke længere er nødvendig
-  // observer.disconnect();
+
+
+  const observer = new MutationObserver(handleAttributeMutations);
+
+const config = {
+  attributes: true, // observer ændringer i attributter
+  attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
+};
+
+observer.observe(htmlElement, config);
+
   
 
 
