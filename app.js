@@ -11,8 +11,6 @@ const linkedInLogoBackground = document.createElement("div");
 const linkinLogo = document.createElement("img");
 const leftSection = document.createElement("div");
 
-linkedInElement.style.visibility = "none";
-
 document.addEventListener('DOMContentLoaded', function() {
     const htmlElement = document.documentElement; 
 
@@ -30,7 +28,6 @@ function handleAttributeMutations(mutations) {
       }
     });
   }
-
 
 const observer = new MutationObserver(handleAttributeMutations);
 
