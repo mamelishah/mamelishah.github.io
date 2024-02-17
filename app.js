@@ -63,12 +63,10 @@ linkinLogo.style.margin = "10px";
 
 linkedInElement.style.visibility = "hidden";
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.target === getChatBoxElement[0] && entry.isIntersecting) {
-            console.log("Hello world")
-        }
-    });
+document.body.addEventListener('click', function(event) {
+    if (event.target.matches('.specifikt-element')) {
+        console.log('.specifikt-element blev klikket');
+    }
 });
 
 observer.observe(getChatBoxElement[0]);
