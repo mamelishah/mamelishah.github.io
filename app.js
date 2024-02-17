@@ -11,6 +11,20 @@ const linkedInLogoBackground = document.createElement("div");
 const linkinLogo = document.createElement("img");
 const leftSection = document.createElement("div");
 
+
+function positionPara() {
+    let chatboxRect = getChatBoxElement.getBoundingClientRect();
+
+
+    linkedInLogoBackground.style.width = chatboxRect.width * 0.15 + 'px'; 
+    linkedInLogoBackground.style.height = heightOfLinkedInElement + 'px'; 
+
+    linkedInElement.style.width = chatboxRect.width + 'px'; 
+    linkedInElement.style.height = heightOfLinkedInElement + "px"; 
+    linkedInElement.style.left = chatboxRect.left + "px"; 
+    linkedInElement.style.top = chatboxRect.top - heightOfLinkedInElement  +  "px"; 
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const htmlElement = document.documentElement; 
 
@@ -21,6 +35,7 @@ function handleAttributeMutations(mutations) {
         if (targetElement.classList.contains('hs-messages-widget-open')) {
           console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
           linkedInElement.style.display = "block";
+          positionPara();
         } else {
           console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
           linkedInElement.style.display = "none";
@@ -100,20 +115,8 @@ linkedInElement.style.borderTopRightRadius = "15px"
 linkedInElement.style.borderTopLeftRadius = "20px"
 linkedInElement.style.cursor = "pointer";
 
-function positionPara() {
-    let chatboxRect = getChatBoxElement.getBoundingClientRect();
 
 
-    linkedInLogoBackground.style.width = chatboxRect.width * 0.15 + 'px'; 
-    linkedInLogoBackground.style.height = heightOfLinkedInElement + 'px'; 
-
-    linkedInElement.style.width = chatboxRect.width + 'px'; 
-    linkedInElement.style.height = heightOfLinkedInElement + "px"; 
-    linkedInElement.style.left = chatboxRect.left + "px"; 
-    linkedInElement.style.top = chatboxRect.top - heightOfLinkedInElement  +  "px"; 
-}
-
-positionPara();
 
 
 window.addEventListener('resize', positionPara);
