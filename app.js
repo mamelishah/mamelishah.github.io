@@ -22,10 +22,10 @@ function handleAttributeMutations(mutations) {
         const targetElement = mutation.target;
         if (targetElement.classList.contains('hs-messages-widget-open')) {
           console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
-          linkedInElement.style.visibility = "block";
+          linkedInElement.style.display = "block";
         } else {
           console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
-          linkedInElement.style.visibility = "none";
+          linkedInElement.style.display = "none";
         }
       }
     });
