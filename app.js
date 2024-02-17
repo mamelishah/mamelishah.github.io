@@ -103,6 +103,7 @@ linkedInElement.addEventListener("click", () => window.location.href = linkToLin
 const htmlElement = document.documentElement; // Dette refererer til <html>-elementet
 
 function handleAttributeMutations(mutations) {
+    console.log('Observeret ændringer i attributterne:');
     mutations.forEach((mutation) => {
       if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
         const targetElement = mutation.target;
