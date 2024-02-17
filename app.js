@@ -10,6 +10,7 @@ const linkedInElement = document.createElement("div");
 const linkedInLogoBackground = document.createElement("div");
 const linkinLogo = document.createElement("img");
 const leftSection = document.createElement("div");
+const title = document.createElement("p");
 
 
 function positionPara() {
@@ -25,8 +26,6 @@ function positionPara() {
     linkedInElement.style.top = chatboxRect.top - heightOfLinkedInElement  +  "px"; 
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const htmlElement = document.documentElement; 
 
 function handleAttributeMutations(mutations) {
     mutations.forEach((mutation) => {
@@ -44,19 +43,7 @@ function handleAttributeMutations(mutations) {
     });
   }
 
-const observer = new MutationObserver(handleAttributeMutations);
 
-const config = {
-  attributes: true, // observer ændringer i attributter
-  attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
-};
-
-observer.observe(htmlElement, config);
-
-  });
-  
-
-const title = document.createElement("p");
 title.textContent = "Eller skriv til os via linkedIn";
 title.style.color = "#F8F7F4";
 title.style.marginLeft = "20px";
@@ -101,9 +88,6 @@ linkedInLogoBackground.style.display = "flex";
 linkedInLogoBackground.style.justifyContent = "center";
 linkinLogo.style.margin = "10px";
 
-
-
-
 linkedInElement.style.backgroundColor = "#017163";
 linkedInElement.style.position = "absolute";
 
@@ -114,6 +98,25 @@ linkedInElement.style.alignItems = "center";
 linkedInElement.style.borderTopRightRadius = "15px"
 linkedInElement.style.borderTopLeftRadius = "20px"
 linkedInElement.style.cursor = "pointer";
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const htmlElement = document.documentElement; 
+
+
+const observer = new MutationObserver(handleAttributeMutations);
+
+const config = {
+  attributes: true, // observer ændringer i attributter
+  attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
+};
+
+observer.observe(htmlElement, config);
+
+  });
+  
+
+
 
 
 
