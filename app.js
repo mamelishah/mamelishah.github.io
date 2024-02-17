@@ -100,23 +100,10 @@ window.addEventListener('resize', positionPara);
 linkedInElement.addEventListener("click", () => window.location.href = linkToLinkedInUser);
 
 
-// Skaber en observer-instans
-let observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.addedNodes.length) {
-        console.log('Et element blev tilføjet til DOM');
-      }
-      if (mutation.removedNodes.length) {
-        console.log('Et element blev fjernet fra DOM');
-      }
-    });
-  });
-  
-  // Konfiguration af observeren
-  let config = { childList: true, subtree: true };
-  
-  // Starter overvågningen af dokumentets krop for ændringer
-  observer.observe(document.body, config);
-  
+document.body.addEventListener('click', function(event) {
+    if (event.target.matches('VizExNotificationBadge__Wrapper-sc-1u71780-0')) {
+        console.log('.specifikt-element blev klikket');
+    }
+});
 
 
