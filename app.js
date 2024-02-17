@@ -3,7 +3,6 @@ let heightOfLinkedInElement = 50;
 let linkToLinkedInUser = "https://dk.linkedin.com/in/frederik-holst-2aa234114";
 
 
-let id_identificator = "VisitorWidgetStyleWrapper__WidgetStyleWrapper-sc-1nz0dzb-0";
 let getChatBoxElement = document.getElementsByClassName(id_identificator);
 let body = document.body;
 
@@ -12,7 +11,7 @@ const linkedInLogoBackground = document.createElement("div");
 const linkinLogo = document.createElement("img");
 const leftSection = document.createElement("div");
 
-linkedInElement.style.visibility = "hidden";
+linkedInElement.style.visibility = "none";
 
 document.addEventListener('DOMContentLoaded', function() {
     const htmlElement = document.documentElement; 
@@ -23,11 +22,10 @@ function handleAttributeMutations(mutations) {
         const targetElement = mutation.target;
         if (targetElement.classList.contains('hs-messages-widget-open')) {
           console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
-          linkedInElement.style.visibility = "show";
+          linkedInElement.style.visibility = "block";
         } else {
           console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
-          linkedInElement.style.visibility = "hidden";
-
+          linkedInElement.style.visibility = "none";
         }
       }
     });
@@ -45,12 +43,6 @@ observer.observe(htmlElement, config);
 
   });
   
-
-
-
-
-
-
 
 const title = document.createElement("p");
 title.textContent = "Eller skriv til os via linkedIn";
