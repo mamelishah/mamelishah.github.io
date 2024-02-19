@@ -4,7 +4,7 @@ class LinkedInElement {
     // Definerer egenskaberne for instansen
     this.heightOfElement = heightOfElement;
     this.linkToUser = linkToUser;
-    this.parentElement =  document.getElementById("chatbox")
+    this.parentElement =  document.getElementById("VisitorWidgetStyleWrapper__WidgetContentStyleWrapper-sc-1nb0krf-1 hUyWJX chat-widget")
 
     this.mainColorHex = mainColorHex;
     this.secondaryColor = secondaryColor;
