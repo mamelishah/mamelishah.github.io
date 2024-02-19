@@ -1,3 +1,36 @@
+
+
+function handleAttributeMutations(mutations) {
+  mutations.forEach((mutation) => {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      const targetElement = mutation.target;
+      if (targetElement.classList.contains('hs-messages-widget-open')) {
+        console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
+        el.setVisiblitity(true);
+        positionPara();
+      } else {
+        console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
+        el.setVisiblitity(false);
+      }
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const htmlElement = document.documentElement; 
+
+const observer = new MutationObserver(handleAttributeMutations);
+
+const config = {
+attributes: true, // observer ændringer i attributter
+attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
+};
+
+observer.observe(htmlElement, config);
+
+});
+
+
 class LinkedInElement {
   constructor(heightOfElement, linkToUser, mainColorHex, secondaryColor, fontFamily) {
 
@@ -139,32 +172,4 @@ const el = new LinkedInElement(heightOfLinkedInElement, linkToLinkedInUser, main
 
 
 
-function handleAttributeMutations(mutations) {
-  mutations.forEach((mutation) => {
-    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-      const targetElement = mutation.target;
-      if (targetElement.classList.contains('hs-messages-widget-open')) {
-        console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
-        el.setVisiblitity(true);
-        positionPara();
-      } else {
-        console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
-        el.setVisiblitity(false);
-      }
-    }
-  });
-}
 
-document.addEventListener('DOMContentLoaded', function() {
-  const htmlElement = document.documentElement; 
-
-const observer = new MutationObserver(handleAttributeMutations);
-
-const config = {
-attributes: true, // observer ændringer i attributter
-attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
-};
-
-observer.observe(htmlElement, config);
-
-});
