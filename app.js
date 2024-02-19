@@ -18,6 +18,21 @@ function handleAttributeMutations(mutations) {
   }
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    const htmlElement = document.documentElement; 
+
+const observer = new MutationObserver(handleAttributeMutations);
+
+const config = {
+  attributes: true, // observer ændringer i attributter
+  attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
+};
+
+observer.observe(htmlElement, config);
+
+  });
+
+
 let heightOfLinkedInElement = 50;
 let linkToLinkedInUser = "https://dk.linkedin.com/in/frederik-holst-2aa234114";
 
@@ -105,20 +120,7 @@ linkedInElement.style.borderTopLeftRadius = "20px"
 linkedInElement.style.cursor = "pointer";
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const htmlElement = document.documentElement; 
 
-
-const observer = new MutationObserver(handleAttributeMutations);
-
-const config = {
-  attributes: true, // observer ændringer i attributter
-  attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
-};
-
-observer.observe(htmlElement, config);
-
-  });
   
 
 
