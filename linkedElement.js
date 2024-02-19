@@ -1,36 +1,4 @@
 
-
-function handleAttributeMutations(mutations) {
-  mutations.forEach((mutation) => {
-    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-      const targetElement = mutation.target;
-      if (targetElement.classList.contains('hs-messages-widget-open')) {
-        console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
-        el.setVisiblitity(true);
-        positionPara();
-      } else {
-        console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
-        el.setVisiblitity(false);
-      }
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const htmlElement = document.documentElement; 
-
-const observer = new MutationObserver(handleAttributeMutations);
-
-const config = {
-attributes: true, // observer ændringer i attributter
-attributeFilter: ['class'] // fokuser kun på ændringer i 'class'-attributten
-};
-
-observer.observe(htmlElement, config);
-
-});
-
-
 class LinkedInElement {
   constructor(heightOfElement, linkToUser, mainColorHex, secondaryColor, fontFamily) {
 
@@ -64,6 +32,10 @@ class LinkedInElement {
     this.styleTitle();
 
     this.sendUSertoLinkedIn();
+
+    this.observeMutations();
+
+
 
   }
 
@@ -148,6 +120,33 @@ class LinkedInElement {
     this.linkedInElement.addEventListener('click', () => {
       window.open(this.linkToUser, '_blank');
     });
+  }
+
+  observeMutations() {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          this.handleAttributeMutations(mutation);
+        }
+      });
+    });
+
+    const config = {
+      attributes: true,
+      attributeFilter: ['class']
+    };
+
+    observer.observe(document.documentElement, config);
+  }
+
+  handleAttributeMutations(mutation) {
+    if (document.documentElement.classList.contains('hs-messages-widget-open')) {
+      console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
+      this.setVisiblitity(false); // Her antager jeg, du vil skjule, når klassen er tilføjet. Ret til true, hvis omvendt.
+    } else {
+      console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
+      this.setVisiblitity(true);
+    }
   }
 
   setVisiblitity(isHidden) {
