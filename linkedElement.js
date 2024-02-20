@@ -141,6 +141,7 @@ class LinkedInElement {
     if (document.documentElement.classList.contains('hs-messages-widget-open')) {
       console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
       this.setVisiblitity(true); 
+      this.resizeElemetn();
     } else {
       console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
       this.setVisiblitity(false);
@@ -149,6 +150,11 @@ class LinkedInElement {
 
   setVisiblitity(isHidden) {
     this.linkedInElement.style.display = isHidden ? "flex" : "none";
+  }
+
+  resizeElemetn() {
+    window.addEventListener('resize', positionPara);
+      linkedInElement.addEventListener("click", () => window.location.href = linkToLinkedInUser);
   }
 
 }

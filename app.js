@@ -129,8 +129,7 @@ linkedInElement.style.cursor = "pointer";
 
 
 
-window.addEventListener('resize', positionPara);
-linkedInElement.addEventListener("click", () => window.location.href = linkToLinkedInUser);
+
 
 
 
