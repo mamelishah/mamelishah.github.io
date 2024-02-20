@@ -35,8 +35,6 @@ class LinkedInElement {
 
     this.sendUSertoLinkedIn();
 
-    
-
   }
 
   addChildrenToMainSection() {
@@ -145,7 +143,7 @@ class LinkedInElement {
       this.setVisiblitity(true); 
     } else {
       console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
-      this.setVisiblitity(fakse);
+      this.setVisiblitity(false);
     }
   }
 
