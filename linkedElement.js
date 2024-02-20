@@ -21,6 +21,8 @@ class LinkedInElement {
     this.title = document.createElement("p");
     this.iconRightArrow = document.createElement("img");
 
+    this.observeMutations();
+
     // Kører metoder for at opsætte widget'en
     this.addChildrenToMainSection();
     this.styleLinkedInElement();
@@ -33,9 +35,7 @@ class LinkedInElement {
 
     this.sendUSertoLinkedIn();
 
-    this.observeMutations();
-
-
+    
 
   }
 
@@ -142,15 +142,15 @@ class LinkedInElement {
   handleAttributeMutations(mutation) {
     if (document.documentElement.classList.contains('hs-messages-widget-open')) {
       console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
-      this.setVisiblitity(false); // Her antager jeg, du vil skjule, når klassen er tilføjet. Ret til true, hvis omvendt.
+      this.setVisiblitity(true); 
     } else {
       console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
-      this.setVisiblitity(true);
+      this.setVisiblitity(fakse);
     }
   }
 
   setVisiblitity(isHidden) {
-    this.linkedInElement.style.display = isHidden ? "none" : "flex";
+    this.linkedInElement.style.display = shouldBeVisible ? "flex" : "none";
   }
 
 }
@@ -163,8 +163,6 @@ let secondaryColor = "#F8F7F4";
 let fontFamily = "helvetica";
 
 let linkToLinkedInUser = "https://dk.linkedin.com/in/frederik-holst-2aa234114";
-
-let isHiddenElement = false;
 
 
 const el = new LinkedInElement(heightOfLinkedInElement, linkToLinkedInUser, mainColorHex, secondaryColor, fontFamily);
