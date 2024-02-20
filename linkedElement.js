@@ -148,7 +148,7 @@ class LinkedInElement {
   }
 
   setVisiblitity(isHidden) {
-    this.linkedInElement.style.display = shouldBeVisible ? "flex" : "none";
+    this.linkedInElement.style.display = isHidden ? "flex" : "none";
   }
 
 }
