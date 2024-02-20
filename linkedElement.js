@@ -21,7 +21,6 @@ class LinkedInElement {
     this.title = document.createElement("p");
     this.iconRightArrow = document.createElement("img");
 
-    this.observeMutations();
 
     // Kører metoder for at opsætte widget'en
     this.addChildrenToMainSection();
@@ -34,6 +33,9 @@ class LinkedInElement {
     this.styleTitle();
 
     this.sendUSertoLinkedIn();
+
+    this.observeMutations();
+
 
   }
 
@@ -67,8 +69,6 @@ class LinkedInElement {
     this.leftSection.style.justifyContent = "start";
     this.leftSection.style.alignItems = "center";
 
-   
-  
   }
 
   styleArrowImage() {
@@ -152,11 +152,7 @@ class LinkedInElement {
     this.linkedInElement.style.display = isHidden ? "flex" : "none";
   }
 
-  resizeElemetn() {
-    window.addEventListener('resize', positionPara);
-      linkedInElement.addEventListener("click", () => window.location.href = linkToLinkedInUser);
-  }
-
+ 
 }
 
 let heightOfLinkedInElement = 50;
