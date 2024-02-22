@@ -5,7 +5,9 @@ class LinkedInElement {
     // Definerer egenskaberne for instansen
     this.heightOfElement = heightOfElement;
     this.linkToUser = linkToUser;
-    this.parentElement =  document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0")
+
+
+    // # fejlen kan være, at det er en div, der ikke er tilgængelig, når scriptet kører.
 
     this.mainColorHex = mainColorHex;
     this.secondaryColor = secondaryColor;
@@ -107,7 +109,7 @@ class LinkedInElement {
   }
 
   positionPara() {
-    let chatboxRect = document.getElementById("chatbox").getBoundingClientRect();
+    let chatboxRect = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0").getBoundingClientRect();
     const element = this.linkedInElement; 
 
     element.style.width = `${chatboxRect.width}px`; 
