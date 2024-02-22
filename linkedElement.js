@@ -111,7 +111,7 @@ class LinkedInElement {
   positionPara() {
     let chatboxRect = ""
     window.addEventListener('load', function () {
-      chatboxRect = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0").getBoundingClientRect();
+      chatboxRect = document.getElementById("jfUAeP").getBoundingClientRect();
     })
 
     const element = this.linkedInElement; 
@@ -170,7 +170,7 @@ let secondaryColor = "#F8F7F4";
 
 let fontFamily = "helvetica";
 
-let linkToLinkedInUser = "https://dk.linkedin.com/in/frederik-holst-2aa234114";
+let linkToLinkedInUser = "https://www.linkedin.com/in/mohammad-al-rabiei-44b312167/";
 
 
 const el = new LinkedInElement(heightOfLinkedInElement, linkToLinkedInUser, mainColorHex, secondaryColor, fontFamily);
