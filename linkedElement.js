@@ -110,25 +110,18 @@ class LinkedInElement {
 
   positionPara() {
 
-    let d = document.getElementById("widget-background-panel");
+    let d = document.getElementById("chat-widget");
 
     console.log(d);
 
     // Sørg for, at elementet findes
-    const chatbox = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0");
+    const chatbox = document.getElementById("chat-widget");
     if (!chatbox) {
       console.log("Chatbox elementet blev ikke fundet");
       return;
     }
     
     const chatboxRect = chatbox.getBoundingClientRect();
-  
-    // Antag at `linkedInElement` er et globalt refereret element eller korrekt initialiseret tidligere
-    const element = document.getElementById('ditAndetElementId'); // Erstat med det faktiske ID
-    if (!element) {
-      console.log("Det afhængige element blev ikke fundet");
-      return;
-    }
   
     // Opdaterer elementets stil baseret på chatbox
     element.style.width = `${chatboxRect.width}px`; 
