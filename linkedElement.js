@@ -109,22 +109,29 @@ class LinkedInElement {
   }
 
   positionPara() {
-    document.addEventListener('DOMContentLoaded', function () {
-      
-      console.log("Bobbbbbyyy")
-    });
+    // Sørg for, at elementet findes
+    const chatbox = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0");
+    if (!chatbox) {
+      console.log("Chatbox elementet blev ikke fundet");
+      return;
+    }
     
-    console.log("positionPara kører");
-    const chatboxRect = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0").getBoundingClientRect();
-      console.log(chatboxRect);
-
-        const element = this.linkedInElement; 
-
-        element.style.width = `${chatboxRect.width}px`; 
-        element.style.height = `${this.heightOfElement}px`; 
-        element.style.left = `${chatboxRect.left}px`; 
-        element.style.top = `${chatboxRect.top - this.heightOfElement}px`; 
-}
+    const chatboxRect = chatbox.getBoundingClientRect();
+  
+    // Antag at `linkedInElement` er et globalt refereret element eller korrekt initialiseret tidligere
+    const element = document.getElementById('ditAndetElementId'); // Erstat med det faktiske ID
+    if (!element) {
+      console.log("Det afhængige element blev ikke fundet");
+      return;
+    }
+  
+    // Opdaterer elementets stil baseret på chatbox
+    element.style.width = `${chatboxRect.width}px`; 
+    element.style.height = `${heightOfElement}px`; // Erstat `heightOfElement` med en værdi eller variabel
+    element.style.left = `${chatboxRect.left}px`; 
+    element.style.top = `${chatboxRect.top - heightOfElement}px`; // Juster dette ift. hvordan du ønsker det placeret
+  }
+  
 
 
   sendUSertoLinkedIn() {
