@@ -112,9 +112,7 @@ class LinkedInElement {
     let chatboxRect = ""
     window.addEventListener('DOMContentLoaded', function () {
       chatboxRect = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0").getBoundingClientRect();
-    })
-
-    console.log(chatboxRect);
+      console.log(chatboxRect);
 
     const element = this.linkedInElement; 
 
@@ -122,6 +120,9 @@ class LinkedInElement {
     element.style.height = `${this.heightOfElement}px`; 
     element.style.left = `${chatboxRect.left}px`; 
     element.style.top = `${chatboxRect.top - this.heightOfElement}px`; 
+    })
+
+    
   }
 
   sendUSertoLinkedIn() {
