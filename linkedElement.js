@@ -109,8 +109,9 @@ class LinkedInElement {
   }
 
   positionPara() {
+    console.log("positionPara kører");
     const chatboxRect = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0").getBoundingClientRect();
-        console.log(chatboxRect);
+      console.log(chatboxRect);
 
         const element = this.linkedInElement; 
 
