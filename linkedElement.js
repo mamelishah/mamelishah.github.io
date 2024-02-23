@@ -109,6 +109,11 @@ class LinkedInElement {
   }
 
   positionPara() {
+
+    let d = document.getElementById("widget-background-panel");
+
+    console.log(d);
+
     // Sørg for, at elementet findes
     const chatbox = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0");
     if (!chatbox) {
