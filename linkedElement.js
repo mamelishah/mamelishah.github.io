@@ -109,22 +109,19 @@ class LinkedInElement {
   }
 
   positionPara() {
-    let chatboxRect = ""
-    window.addEventListener('load', function () {
-      console.log(document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0"));
-      chatboxRect = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0").getBoundingClientRect();
-      console.log(chatboxRect);
+    window.addEventListener('load', () => {
+        const chatboxRect = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0").getBoundingClientRect();
+        console.log(chatboxRect);
 
-    const element = this.linkedInElement; 
+        const element = this.linkedInElement; 
 
-    element.style.width = `${chatboxRect.width}px`; 
-    element.style.height = `${this.heightOfElement}px`; 
-    element.style.left = `${chatboxRect.left}px`; 
-    element.style.top = `${chatboxRect.top - this.heightOfElement}px`; 
-    })
+        element.style.width = `${chatboxRect.width}px`; 
+        element.style.height = `${this.heightOfElement}px`; 
+        element.style.left = `${chatboxRect.left}px`; 
+        element.style.top = `${chatboxRect.top - this.heightOfElement}px`; 
+    });
+}
 
-    
-  }
 
   sendUSertoLinkedIn() {
     this.linkedInElement.addEventListener('click', () => {
