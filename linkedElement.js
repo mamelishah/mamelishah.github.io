@@ -111,6 +111,7 @@ class LinkedInElement {
   positionPara() {
     let chatboxRect = ""
     window.addEventListener('load', function () {
+      console.log(document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0"));
       chatboxRect = document.getElementById("WidgetHeaderStyleWrapper__FullHeightDiv-sc-1atfvw-0").getBoundingClientRect();
       console.log(chatboxRect);
 
