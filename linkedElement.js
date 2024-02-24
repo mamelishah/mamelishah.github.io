@@ -137,18 +137,24 @@ class LinkedInElement {
 
   observeMutations() {
     const observer = new MutationObserver((mutations) => {
+      let classMutationDetected = false;
+      
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           this.handleAttributeMutations(mutation);
-        }
-        const targetElement = mutation.target;
-        if (targetElement.classList.contains("WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1") &&
-            targetElement.classList.contains("fbemlJ") &&
-            targetElement.classList.contains("widget-background-panel")) {
-              console.log('Alle HubSpot klasserne er blevet tilgængelige på samme element');
-              // Implementer yderligere logik her, når klasserne er fundet
+          classMutationDetected = true;
         }
       });
+      
+      // Efter at have tjekket alle mutationer, tjek for tilstedeværelsen af elementet med alle tre klasser
+      if (classMutationDetected) {
+        const selector = '.WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1.fbemlJ.widget-background-panel';
+        const targetElement = document.querySelector(selector);
+        if (targetElement) {
+          console.log('Elementet med alle tre klasser er fundet');
+          // Implementer yderligere logik her, når elementet er fundet
+        }
+      }
     });
   
     const config = {
@@ -161,6 +167,7 @@ class LinkedInElement {
   
     observer.observe(document.body, config);
   }
+  
   
   
 
