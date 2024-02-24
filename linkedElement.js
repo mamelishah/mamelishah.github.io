@@ -135,9 +135,7 @@ class LinkedInElement {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          this.handleAttributeMutations(mutation);
-          
-          
+          this.handleAttributeMutations(mutation);          
         } 
       });
       
@@ -161,6 +159,9 @@ class LinkedInElement {
     if (document.documentElement.classList.contains('hs-messages-widget-open')) {
       console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
       this.setVisiblitity(true); 
+      console.log(document.getElementsByClassName('WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1'));
+      console.log(document.getElementsByClassName('fbemlJ'));
+      console.log(document.getElementsByClassName("widget-background-panel"));
     } else {
       console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
       this.setVisiblitity(false);
@@ -173,7 +174,6 @@ class LinkedInElement {
 
 
 }
-
 
 
 let heightOfLinkedInElement = 50;
