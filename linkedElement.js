@@ -111,6 +111,9 @@ class LinkedInElement {
   }
 
   positionPara() {
+
+    this.chatbox = document.getElementById("chat-widget");
+    this.chatbox = this.chatbox.getBoundingClientRect();
   
     // Brug 'this.linkedInElement' i stedet for 'element'
     this.linkedInElement.style.width = `${this.chatboxRect.width}px`;
@@ -138,6 +141,7 @@ class LinkedInElement {
         this.chatbox = document.getElementById("chat-widget");
         if (chatbox && getComputedStyle(chatbox).display !== 'none') {
           console.log('Chatbox er synlig');
+        this.chatbox = document.getElementById("chat-widget");
           this.positionPara();
         }
       });
