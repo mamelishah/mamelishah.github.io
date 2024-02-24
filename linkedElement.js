@@ -1,3 +1,5 @@
+console.log(document.body);
+
 
 class LinkedInElement {
   constructor(heightOfElement, linkToUser, mainColorHex, secondaryColor, fontFamily) {
