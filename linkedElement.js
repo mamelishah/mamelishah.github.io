@@ -139,9 +139,9 @@ class LinkedInElement {
           setTimeout(() => {
             this.chatbox = document.getElementById("chat-widget");
             // Yderligere logik kan placeres her efter at have ventet
+            console.log(this.chatbox);
           }, 1000); // 1000 millisekunder = 1 sekund
           
-          console.log(this.chatbox);
         } 
       });
       
