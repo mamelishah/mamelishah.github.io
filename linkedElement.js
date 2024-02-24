@@ -139,10 +139,9 @@ class LinkedInElement {
         }
       });
       // Tjekker om chat-widget er synlig efter hver mutation
-      const chatbox = document.querySelector(".chat-widget");
-      if (chatbox && getComputedStyle(chatbox).display !== 'none') {
+      this.chatbox = document.querySelector(".chat-widget");
+      if (this.chatbox && getComputedStyle(this.chatbox).display !== 'none') {
         console.log('Chatbox er synlig');
-        this.chatbox = chatbox;
         this.positionPara();
       }
     });
