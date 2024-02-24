@@ -156,12 +156,16 @@ class LinkedInElement {
 
 
   handleChatrobot(mutation) {
-    if (document.documentElement.classList.contains('chat-widget')) {
+    const chatWidget = document.querySelector('.chat-widget');
+    if (chatWidget && getComputedStyle(chatWidget).display !== 'none') {
       console.log('chat-widget åben');
+      // Her kan du tilføje logik for at positionere dit LinkedIn-element
     } else {
       console.log('chat-widget lukket');
+      // Logik for når chat-widget er lukket eller ikke synlig
     }
   }
+  
 
   
 
