@@ -136,24 +136,32 @@ class LinkedInElement {
   observeMutations() {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
+        // Behandler ændringer i attributter, som før
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          this.handleAttributeMutations(mutation);          
-        } 
+          this.handleAttributeMutations(mutation);
+          
+          // Tjekker specifikt for tilstedeværelsen af HubSpot klassen
+          const targetElement = mutation.target;
+          if (targetElement.classList.contains("WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1") || targetElement.classList.contains("fbemlJ") || targetElement.classList.contains("widget-background-panel")) {
+            console.log('HubSpot klassen er blevet tilgængelig');
+            // Implementer yderligere logik her, når klassen er fundet
+          }
+        }
       });
-      
     });
   
     const config = {
       attributes: true,
       childList: true,
       subtree: true,
-      attributeOldValue: true, // Tilføjet for at få tidligere værdier af attributter, hvis nødvendigt
-      attributeFilter: ['class', 'style'] // Fokuserer på klasse og stilændringer
+      attributeOldValue: true, // For at fange tidligere værdier af attributter
+      attributeFilter: ['class', 'style'] // Fokuserer på klasser og stilændringer
     };
   
-    // Starter observationen af <body> for at fange alle relevante ændringer
+    // Starter observationen af <body> for at fange relevante ændringer
     observer.observe(document.body, config);
   }
+  
 
   
 
