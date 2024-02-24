@@ -139,16 +139,25 @@ class LinkedInElement {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           this.handleAttributeMutations(mutation);
         }
+        // Tjek for chatboxens synlighed her
+        const chatbox = document.getElementById("chat-widget");
+        if (chatbox && getComputedStyle(chatbox).display !== 'none') {
+          console.log('Chatbox er synlig');
+          this.positionPara();
+        }
       });
     });
-
+  
     const config = {
       attributes: true,
-      attributeFilter: ['class']
+      childList: true,
+      subtree: true,
+      attributeFilter: ['class', 'style'] // Overvåg også 'style' hvis det er relevant
     };
-
+  
     observer.observe(document.documentElement, config);
   }
+  
 
   handleAttributeMutations(mutation) {
     if (document.documentElement.classList.contains('hs-messages-widget-open')) {
