@@ -136,7 +136,7 @@ class LinkedInElement {
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           this.handleAttributeMutations(mutation);
-          this.handleChatrobot(mutation);
+          this.chatbox = document.getElementById("chat-widget");
         } 
       });
       
@@ -154,17 +154,6 @@ class LinkedInElement {
     observer.observe(document.body, config);
   }
 
-
-  handleChatrobot(mutation) {
-    const chatWidget = document.querySelector('.chat-widget');
-    if (chatWidget) {
-      console.log('chat-widget åben');
-      // Her kan du tilføje logik for at positionere dit LinkedIn-element
-    } else {
-      console.log('chat-widget lukket');
-      // Logik for når chat-widget er lukket eller ikke synlig
-    }
-  }
   
 
   handleAttributeMutations(mutation) {
