@@ -141,14 +141,13 @@ class LinkedInElement {
         // Behandler ændringer i attributter, som før
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           this.handleAttributeMutations(mutation);
-          
-          // Tjekker specifikt for tilstedeværelsen af HubSpot klassen
-          const targetElement = mutation.target;
-          if (targetElement.classList.contains("WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1") || targetElement.classList.contains("fbemlJ") || targetElement.classList.contains("widget-background-panel")) {
+        }
+        // Tjekker specifikt for tilstedeværelsen af HubSpot klassen
+        const targetElement = mutation.target;
+        if (targetElement.classList.contains("WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1") || targetElement.classList.contains("fbemlJ") || targetElement.classList.contains("widget-background-panel")) {
             console.log('HubSpot klassen er blevet tilgængelig');
             // Implementer yderligere logik her, når klassen er fundet
           }
-        }
       });
     });
   
