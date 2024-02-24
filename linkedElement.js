@@ -137,25 +137,28 @@ class LinkedInElement {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           this.handleAttributeMutations(mutation);
         }
-        // Tjek for chatboxens synlighed her
-        this.chatbox = document.getElementById("chat-widget");
-        if (chatbox && getComputedStyle(chatbox).display !== 'none') {
-          console.log('Chatbox er synlig');
-        this.chatbox = document.getElementById("chat-widget");
-          this.positionPara();
-        }
       });
+      // Tjekker om chat-widget er synlig efter hver mutation
+      const chatbox = document.querySelector(".chat-widget");
+      if (chatbox && getComputedStyle(chatbox).display !== 'none') {
+        console.log('Chatbox er synlig');
+        this.chatbox = chatbox;
+        this.positionPara();
+      }
     });
   
     const config = {
       attributes: true,
       childList: true,
       subtree: true,
-      attributeFilter: ['class', 'style'] // Overvåg også 'style' hvis det er relevant
+      attributeOldValue: true, // Tilføjet for at få tidligere værdier af attributter, hvis nødvendigt
+      attributeFilter: ['class', 'style'] // Fokuserer på klasse og stilændringer
     };
   
-    observer.observe(document.documentElement, config);
+    // Starter observationen af <body> for at fange alle relevante ændringer
+    observer.observe(document.body, config);
   }
+  
   
 
   handleAttributeMutations(mutation) {
