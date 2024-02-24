@@ -7,6 +7,8 @@ class LinkedInElement {
     this.linkToUser = linkToUser;
 
 
+    this.chatbox = null;
+
     // # fejlen kan være, at det er en div, der ikke er tilgængelig, når scriptet kører.
 
     this.mainColorHex = mainColorHex;
@@ -109,19 +111,12 @@ class LinkedInElement {
   }
 
   positionPara() {
-    const chatbox = document.getElementById("chat-widget");
-    if (!chatbox) {
-      console.log("Chatbox elementet blev ikke fundet");
-      return;
-    }
-  
-    const chatboxRect = chatbox.getBoundingClientRect();
   
     // Brug 'this.linkedInElement' i stedet for 'element'
-    this.linkedInElement.style.width = `${chatboxRect.width}px`;
+    this.linkedInElement.style.width = `${this.chatboxRect.width}px`;
     this.linkedInElement.style.height = `${this.heightOfElement}px`;
-    this.linkedInElement.style.left = `${chatboxRect.left}px`;
-    this.linkedInElement.style.top = `${chatboxRect.top - this.heightOfElement}px`;
+    this.linkedInElement.style.left = `${this.chatboxRect.left}px`;
+    this.linkedInElement.style.top = `${this.chatboxRect.top - this.heightOfElement}px`;
   }
   
   
@@ -140,7 +135,7 @@ class LinkedInElement {
           this.handleAttributeMutations(mutation);
         }
         // Tjek for chatboxens synlighed her
-        const chatbox = document.getElementById("chat-widget");
+        this.chatbox = document.getElementById("chat-widget");
         if (chatbox && getComputedStyle(chatbox).display !== 'none') {
           console.log('Chatbox er synlig');
           this.positionPara();
@@ -163,7 +158,6 @@ class LinkedInElement {
     if (document.documentElement.classList.contains('hs-messages-widget-open')) {
       console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
       this.setVisiblitity(true); 
-      this.positionPara();
     } else {
       console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
       this.setVisiblitity(false);
