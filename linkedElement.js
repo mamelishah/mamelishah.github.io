@@ -136,14 +136,10 @@ class LinkedInElement {
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           this.handleAttributeMutations(mutation);
-        }
+          this.handleChatrobot(mutation);
+        } 
       });
-      // Tjekker om chat-widget er synlig efter hver mutation
-      this.chatbox = document.querySelector(".chat-widget");
-      if (this.chatbox && getComputedStyle(this.chatbox).display !== 'none') {
-        console.log('Chatbox er synlig');
-        this.positionPara();
-      }
+      
     });
   
     const config = {
@@ -157,7 +153,16 @@ class LinkedInElement {
     // Starter observationen af <body> for at fange alle relevante ændringer
     observer.observe(document.body, config);
   }
-  
+
+
+  handleChatrobot(mutation) {
+    if (document.documentElement.classList.contains('chat-widget')) {
+      console.log('chat-widget åben');
+    } else {
+      console.log('chat-widget lukket');
+    }
+  }
+
   
 
   handleAttributeMutations(mutation) {
@@ -174,8 +179,10 @@ class LinkedInElement {
     this.linkedInElement.style.display = isHidden ? "flex" : "none";
   }
 
- 
+
 }
+
+
 
 let heightOfLinkedInElement = 50;
 
@@ -184,7 +191,7 @@ let secondaryColor = "#F8F7F4";
 
 let fontFamily = "helvetica";
 
-let linkToLinkedInUser = "https://www.linkedin.com/in/mohammad-al-rabiei-44b312167/";
+let linkToLinkedInUser = "https://www .linkedin.com/in/mohammad-al-rabiei-44b312167/";
 
 
 const el = new LinkedInElement(heightOfLinkedInElement, linkToLinkedInUser, mainColorHex, secondaryColor, fontFamily);
