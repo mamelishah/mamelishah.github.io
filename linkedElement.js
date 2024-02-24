@@ -27,6 +27,9 @@ class LinkedInElement {
     this.title = document.createElement("p");
     this.iconRightArrow = document.createElement("img");
 
+    this.observeMutations();
+
+
     // Kører metoder for at opsætte widget'en
     this.addChildrenToMainSection();
     this.styleLinkedInElement();
