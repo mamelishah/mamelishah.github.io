@@ -137,6 +137,7 @@ class LinkedInElement {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           this.handleAttributeMutations(mutation);
           this.chatbox = document.getElementById("chat-widget");
+          console.log(this.chatbox);
         } 
       });
       
