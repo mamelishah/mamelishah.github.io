@@ -165,7 +165,7 @@ class LinkedInElement {
       console.log(document.getElementsByClassName('WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1'));
       console.log(document.getElementsByClassName('fbemlJ'));
       console.log(document.getElementsByClassName("widget-background-panel"));
-      print(document.querySelector("WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1 fbemlJ widget-background-panel"));
+      console.log(document.querySelector("WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1 fbemlJ widget-background-panel"));
       }, 1000); // 1000 millisekunder = 1 sekund
       
 
