@@ -127,8 +127,6 @@ class LinkedInElement {
   }
   
   
-
-
   sendUSertoLinkedIn() {
     this.linkedInElement.addEventListener('click', () => {
       window.open(this.linkToUser, '_blank');
@@ -152,7 +150,6 @@ class LinkedInElement {
         const targetElement = document.querySelector(selector);
         if (targetElement) {
           console.log('Elementet med alle tre klasser er fundet');
-          // Implementer yderligere logik her, når elementet er fundet
         }
       }
     });
@@ -167,26 +164,13 @@ class LinkedInElement {
   
     observer.observe(document.body, config);
   }
-  
-  
-  
 
-  
 
   handleAttributeMutations(mutation) {
     if (document.documentElement.classList.contains('hs-messages-widget-open')) {
       console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
       this.setVisiblitity(true); 
-      setTimeout(() => {
-      console.log(document.getElementsByClassName('WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1'));
-      console.log(document.getElementsByClassName('fbemlJ'));
-      console.log(document.getElementsByClassName("widget-background-panel"));
-      console.log(document.querySelector("WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1 fbemlJ widget-background-panel"));
-      }, 5000); // 1000 millisekunder = 1 sekund
-      
-
-      console.log(document.querySelector("WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1 fbemlJ widget-background-panel"));
-      
+      console.log("inside");
     } else {
       console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
       this.setVisiblitity(false);
