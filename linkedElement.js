@@ -139,43 +139,37 @@ class LinkedInElement {
 
   observeMutations() {
     const observer = new MutationObserver((mutations) => {
-      let classMutationDetected = false;
-      
       mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          this.handleAttributeMutations(mutation);
-          classMutationDetected = true;
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          // Tjekker, om det tilføjede node er chatbottens container
+          mutation.addedNodes.forEach((node) => {
+            if (node.matches && node.matches(".WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1.fbemlJ.widget-background-panel")) {
+              this.chatbox = node;
+              this.positionPara();
+            }
+          });
+        }
+        if (mutation.type === 'attributes' && this.chatbox) {
+          this.positionPara();
         }
       });
-      
-      // Efter at have tjekket alle mutationer, tjek for tilstedeværelsen af elementet med alle tre klasser
-      if (classMutationDetected) {
-        const selector = '.WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1.fbemlJ.widget-background-panel';
-        const targetElement = document.querySelector(selector);
-        if (targetElement) {
-          console.log('Elementet med alle tre klasser er fundet');
-        }
-      }
     });
   
-    const config = {
+    observer.observe(document.body, {
       attributes: true,
       childList: true,
-      subtree: true,
-      attributeOldValue: true,
-      attributeFilter: ['class', 'style']
-    };
-  
-    observer.observe(document.body, config);
+      subtree: true
+    });
   }
+  
 
 
   handleAttributeMutations(mutation) {
     if (document.documentElement.classList.contains('hs-messages-widget-open')) {
       console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
       this.setVisiblitity(true); 
-      this.chatbox = document.querySelector(".WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1.fbemlJ.widget-background-panel");
-      this.positionPara();
+    //  this.chatbox = document.querySelector(".WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1.fbemlJ.widget-background-panel");
+    //  this.positionPara();
     } else {
       console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
       this.setVisiblitity(false);
