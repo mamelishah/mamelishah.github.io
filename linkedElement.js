@@ -145,6 +145,8 @@ class LinkedInElement {
       return;
     }
 
+    console.log('iframe fundet');
+
     const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
     
     const observer = new MutationObserver((mutations) => {
