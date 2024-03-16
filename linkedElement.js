@@ -139,40 +139,28 @@ class LinkedInElement {
 
   observeMutations() {
     const observer = new MutationObserver((mutations) => {
-      let classMutationDetected = false;
-      
       mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          this.handleAttributeMutations(mutation);
-          classMutationDetected = true;
-        }
-        if(mutations.type === 'childList' && mutation.addedNodes.length > 0) {
-          console.log('Der er blevet tilføjet et eller flere elementer');
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          mutation.addedNodes.forEach((node) => {
+            // Tjekker, om node er elementet og indeholder de specifikke klasser
+            if (node.nodeType === Node.ELEMENT_NODE && node.matches('.VisitorWidgetStyleWrapper__WidgetContentStyleWrapper-sc-1ta6zha-1.najGU.chat-widget')) {
+              console.log('Chat widget er blevet tilføjet til DOM.');
+              this.chatbox = node;
+              this.positionPara();
+            }
+          });
         }
       });
-
-      if (classMutationDetected) {
-        const selector = '.VisitorWidgetStyleWrapper__WidgetContentStyleWrapper-sc-1ta6zha-1.najGU.chat-widget';
-        const targetElement = document.querySelector(selector);
-        if (targetElement) {
-          this.chatbox = targetElement;
-          this.positionPara();
-        }
-      }
-      
-      
     });
   
     const config = {
-      attributes: true,
       childList: true,
-      subtree: true,
-      attributeOldValue: true,
-      attributeFilter: ['class', 'style']
+      subtree: true
     };
   
     observer.observe(document.body, config);
   }
+  
 
 
   handleAttributeMutations(mutation) {
