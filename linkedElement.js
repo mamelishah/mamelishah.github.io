@@ -117,7 +117,7 @@ class LinkedInElement {
   positionPara() {
 
     this.chatbox = document.getElementById("chat-widget");
-    this.chatbox = this.chatbox.getBoundingClientRect();
+    this.chatboxRect = this.chatbox.getBoundingClientRect();
   
     // Brug 'this.linkedInElement' i stedet for 'element'
     this.linkedInElement.style.width = `${this.chatboxRect.width}px`;
@@ -170,7 +170,6 @@ class LinkedInElement {
     if (document.documentElement.classList.contains('hs-messages-widget-open')) {
       console.log('hs-messages-widget-open klassen er blevet tilføjet til <html>');
       this.setVisiblitity(true); 
-      console.log("inside");
     } else {
       console.log('hs-messages-widget-open klassen er blevet fjernet fra <html>');
       this.setVisiblitity(false);
