@@ -138,28 +138,32 @@ class LinkedInElement {
     });
   }
 
-  observeMutations() {
+  observeIframe() {
+    const iframe = document.getElementById('hubspot-conversations-iframe'); // Anvend en mere specifik selector, hvis muligt
+    if (!iframe) {
+      console.error('Ingen iframe fundet');
+      return;
+    }
+
+    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
           mutation.addedNodes.forEach((node) => {
-            // Tjekker, om node er elementet og indeholder de specifikke klasser
-            if (node.nodeType === Node.ELEMENT_NODE && node.matches('.VisitorWidgetStyleWrapper__WidgetContentStyleWrapper-sc-1ta6zha-1.najGU.chat-widget')) {
-              console.log('Chat widget er blevet tilføjet til DOM.');
-              this.chatbox = node;
-              this.positionPara();
+            if (node.nodeType === Node.ELEMENT_NODE && node.matches('.chat-widget')) {
+              console.log('Chat widget fundet i iframe');
+              this.positionLinkedInElement(node);
             }
           });
         }
       });
     });
-  
-    const config = {
+
+    observer.observe(iframeDocument.body, {
       childList: true,
-      subtree: true
-    };
-  
-    observer.observe(document.body, config);
+      subtree: true,
+    });
   }
   
 
