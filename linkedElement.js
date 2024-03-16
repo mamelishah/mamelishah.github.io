@@ -115,16 +115,20 @@ class LinkedInElement {
   }
 
   positionPara() {
-
+    if (!this.chatbox) {
+      console.log('Chatbox er ikke fundet endnu.');
+      return;
+    }
     
     this.chatboxRect = this.chatbox.getBoundingClientRect();
-  
-    // Brug 'this.linkedInElement' i stedet for 'element'
+    
+    // Opdaterer positionen
     this.linkedInElement.style.width = `${this.chatboxRect.width}px`;
     this.linkedInElement.style.height = `${this.heightOfElement}px`;
     this.linkedInElement.style.left = `${this.chatboxRect.left}px`;
     this.linkedInElement.style.top = `${this.chatboxRect.top - this.heightOfElement}px`;
   }
+  
   
   
   sendUSertoLinkedIn() {
