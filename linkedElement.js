@@ -152,11 +152,10 @@ class LinkedInElement {
       });
 
       if (classMutationDetected) {
-        const selector = '.WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1.fbemlJ.widget-background-panel';
+        const selector = '.VisitorWidgetStyleWrapper__WidgetContentStyleWrapper-sc-1ta6zha-1.najGU.chat-widget';
         const targetElement = document.querySelector(selector);
         if (targetElement) {
-          console.log('Elementet med alle tre klasser er fundet');
-          this.chatbox = document.querySelector(".WidgetHeaderStyleWrapper__BackgroundPanelContent-sc-1atfvw-1.fbemlJ.widget-background-panel");
+          this.chatbox = targetElement;
           this.positionPara();
         }
       }
