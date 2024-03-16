@@ -115,6 +115,7 @@ class LinkedInElement {
   }
 
   positionPara() {
+    console.log('positionPara() kører');
     if (!this.chatbox) {
       console.log('Chatbox er ikke fundet endnu.');
       return;
